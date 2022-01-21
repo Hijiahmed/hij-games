@@ -5,7 +5,7 @@ import "./Game.css";
 import ReactStars from "react-rating-stars-component";
 import { TiDelete } from "react-icons/all";
 import { FaRegComment } from "react-icons/all";
-import {GrUpdate} from 'react-icons/gr'
+import { GrUpdate } from "react-icons/gr";
 
 export default function Game({ token, admin }) {
   const [game, setGame] = useState(null);
@@ -20,14 +20,20 @@ export default function Game({ token, admin }) {
   const { id } = useParams();
   useEffect(async () => {
     if (token) {
-      const result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/game/${id}`, {
-        headers: { authorization: "Bearer " + token },
-      });
+      const result = await axios.get(
+        `${process.env.REACT_APP_BACKEND_URL}/game/${id}`,
+        {
+          headers: { authorization: "Bearer " + token },
+        }
+      );
       setGame(result.data);
     }
-    const result = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/user`, {
-      headers: { authorization: "Bearer " + token },
-    });
+    const result = await axios.get(
+      `${process.env.REACT_APP_BACKEND_URL}/user`,
+      {
+        headers: { authorization: "Bearer " + token },
+      }
+    );
     try {
       console.log(result.data, "user hereeee");
       setUser(result.data);
@@ -125,80 +131,82 @@ export default function Game({ token, admin }) {
           <p>{game.name}</p>
           <p>{game.description}</p>
           <img className="imgGame" src={game.img} alr="no img" alt="" />
-       <br />
+          <br />
           <iframe src={game.video} className="video1" frameborder="0"></iframe>
           <br />
-          <div className="extraImgessGame">
-            {game.extraImg.map((element) => {
-              return (
-                // console.log(element);
-                <div className="divExtraIMG">
-                  <img className="extraImgGame" src={element} alt="" />
-                </div>
-              );
-            })}
-          </div>
-          <div className="divAddCommentAndReating">
-            <input
-              className="inputComment"
-              placeholder="comment"
-              onChange={(e) => {
-                changeComment(e);
-              }}
-              type="text"
-            />
-            <FaRegComment
-              className="buttonComment"
-              onClick={() => {
-                addComment();
-              }}
-            />
-            <br />
-            <select
-              id="cars"
-              name="cars"
-              onChange={(e) => {
-                ratingChanged(e);
-              }}
-            >
-              <option value="0">Rate:</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
+          <div className="divContainerCE">
+            <div className="divAddCommentAndReating">
+              <input
+                className="inputComment"
+                placeholder="comment"
+                onChange={(e) => {
+                  changeComment(e);
+                }}
+                type="text"
+              />
+              <FaRegComment
+                className="buttonComment"
+                onClick={() => {
+                  addComment();
+                }}
+              />
+              <br />
+              <select
+                id="cars"
+                name="cars"
+                onChange={(e) => {
+                  ratingChanged(e);
+                }}
+              >
+                <option value="0">Rate:</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
 
-            <div className="commentsCont">
-              {game.comment.map((elm, i) => {
-                return (
-                  <div key={i}>
-                    <p> {elm.userName}</p>
-                    <p>{elm.comment}</p>
-                    <ReactStars
-                      count={5}
-                      onChange={ratingChanged}
-                      ratingValue={rating}
-                      size={24}
-                      value={elm.rating}
-                      activeColor="#ffd700"
-                    />
-                    {elm.userId == user._id ? (
-                      <TiDelete
-                        onClick={() => {
-                          deletecomment(elm.comment);
-                        }}
+              <div className="commentsCont">
+                {game.comment.map((elm, i) => {
+                  return (
+                    <div key={i}>
+                      <p> {elm.userName}</p>
+                      <p>{elm.comment}</p>
+                      <ReactStars
+                        count={5}
+                        onChange={ratingChanged}
+                        ratingValue={rating}
+                        size={24}
+                        value={elm.rating}
+                        activeColor="#ffd700"
                       />
-                    ) : (
-                      ""
-                    )}
+                      {elm.userId == user._id ? (
+                        <TiDelete
+                          onClick={() => {
+                            deletecomment(elm.comment);
+                          }}
+                        />
+                      ) : (
+                        ""
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+            <div className="extraImgessGame">
+              {game.extraImg.map((element) => {
+                return (
+                  // console.log(element);
+                  <div className="divExtraIMG">
+                    <img className="extraImgGame" src={element} alt="" />
                   </div>
                 );
               })}
             </div>
           </div>
 
-          <div >
+          <div>
             {user.admin == true ? (
               <div className="adminDiv">
                 <input
@@ -243,7 +251,7 @@ export default function Game({ token, admin }) {
                     updateGame(game._id);
                   }}
                 />
-                 
+
                 <br />
 
                 <div>
