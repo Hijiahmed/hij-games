@@ -11,6 +11,7 @@ export default function Games({ token, admin }) {
   const [searchArr, setSearchArr] = useState("");
   const history = useHistory();
   //////////////////////////////////////////////////////
+  
   useEffect(async () => {
     const res = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/games`);
     console.log(res.data);
@@ -88,6 +89,7 @@ export default function Games({ token, admin }) {
   //
   return (
     <>
+      <div className="serch-cont">
       <input
         type="text"
         placeholder="search"
@@ -105,6 +107,8 @@ export default function Games({ token, admin }) {
         
 🔍
       </button>
+      </div>
+      
       <div className="Gamediv">
         <div className="Gamediv">
           {game.map((elm, i) => {

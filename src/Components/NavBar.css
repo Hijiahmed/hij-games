@@ -34,7 +34,7 @@ li a {
   .divNavBar{
     margin: 0;
     padding: 0;
-    height: 50px;
+    height: auto
   }
   ul {
    margin: 0;
