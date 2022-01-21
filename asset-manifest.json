@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/hij-games/static/css/main.989860fc.chunk.css",
-    "main.js": "/hij-games/static/js/main.ce49ff0c.chunk.js",
-    "main.js.map": "/hij-games/static/js/main.ce49ff0c.chunk.js.map",
+    "main.css": "/hij-games/static/css/main.093246f1.chunk.css",
+    "main.js": "/hij-games/static/js/main.43eaed94.chunk.js",
+    "main.js.map": "/hij-games/static/js/main.43eaed94.chunk.js.map",
     "runtime-main.js": "/hij-games/static/js/runtime-main.dd877c2a.js",
     "runtime-main.js.map": "/hij-games/static/js/runtime-main.dd877c2a.js.map",
     "static/js/2.8317e851.chunk.js": "/hij-games/static/js/2.8317e851.chunk.js",
     "static/js/2.8317e851.chunk.js.map": "/hij-games/static/js/2.8317e851.chunk.js.map",
     "index.html": "/hij-games/index.html",
-    "static/css/main.989860fc.chunk.css.map": "/hij-games/static/css/main.989860fc.chunk.css.map",
+    "static/css/main.093246f1.chunk.css.map": "/hij-games/static/css/main.093246f1.chunk.css.map",
     "static/js/2.8317e851.chunk.js.LICENSE.txt": "/hij-games/static/js/2.8317e851.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dd877c2a.js",
     "static/js/2.8317e851.chunk.js",
-    "static/css/main.989860fc.chunk.css",
-    "static/js/main.ce49ff0c.chunk.js"
+    "static/css/main.093246f1.chunk.css",
+    "static/js/main.43eaed94.chunk.js"
   ]
 }
